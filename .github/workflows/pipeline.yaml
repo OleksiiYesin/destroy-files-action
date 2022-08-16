@@ -10,9 +10,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Delete action
         uses: ./
-        with:
-          dir: content
+        # with:
+        #   dir: content
       - name: Debug step
-        run: |
-          ls content/
+        run: | 
           ls ./
