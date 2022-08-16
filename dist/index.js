@@ -5934,14 +5934,19 @@ const core = __nccwpck_require__(2186);
 const fs = __nccwpck_require__(7147);
 const fsExtra = __nccwpck_require__(5630);
 
-const dir = core.getInput('dir', {default: './'});
-
 async function run() {
-    await fs.readdir(dir, (err, files) => {
-        if(err) throw err
-        core.info(`You can delete files ${files}`);
-        // fsExtra.emptyDirSync(dir);
-    })
+    try {
+        const dir = core.getInput('dir', {default: './'});
+        await fs.readdir(dir, (err, files) => {
+            if(err) throw err
+            core.info(`You can delete: ${files}`);
+            // fsExtra.emptyDirSync(dir);
+        })
+    }
+    catch(e) {
+        core.error('Failed during deleting files');
+        throw e;
+    }
 }
 
 run();
