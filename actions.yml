@@ -1,0 +1,10 @@
+name: 'Delete Files Action'
+description: 'Delete files on the filesystem'
+inputs:
+  dir:
+    description: 'Folder where will delete files'
+    required: false
+    default: './'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

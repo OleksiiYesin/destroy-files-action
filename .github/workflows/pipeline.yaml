@@ -1,0 +1,14 @@
+name: Delete files
+
+on: [push]
+
+jobs:
+  delete-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Delete action
+        uses: ./
+          with:
+            dir: content
