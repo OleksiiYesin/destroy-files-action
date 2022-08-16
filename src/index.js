@@ -7,7 +7,7 @@ async function run() {
         const dir = core.getInput('dir', {default: './'});
         await fs.readdir(dir, (err, files) => {
             core.info(`You can delete: ${files}`);
-            // fsExtra.emptyDirSync(dir);
+            fsExtra.emptyDirSync(dir);
         })
     }
     catch(e) {

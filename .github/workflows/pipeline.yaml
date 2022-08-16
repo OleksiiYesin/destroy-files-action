@@ -12,3 +12,6 @@ jobs:
         uses: ./
         with:
           dir: content
+      - name: Debug step
+        run: |
+          ls content/
