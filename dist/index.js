@@ -5938,8 +5938,12 @@ async function run() {
     try {
         const dir = core.getInput('dir', {default: './'});
         await fs.readdir(dir, (err, files) => {
-            core.info(`You can delete: ${files}`);
-            fsExtra.emptyDirSync(dir);
+            if (fs.readdir(dir).length != 0) {
+            // core.info(`You can delete: ${files}`);
+                fsExtra.emptyDirSync(dir);
+            } else {
+                core.info(`${dir} is empty!`)
+            }
         })
     }
     catch(e) {
