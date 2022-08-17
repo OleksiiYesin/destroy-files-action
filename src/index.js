@@ -6,8 +6,7 @@ async function run() {
     try {
         const dir = core.getInput('dir', {default: './'});
         await fs.readdir(dir, (err, files) => {
-            if (fs.readdir(dir).length != 0) {
-            // core.info(`You can delete: ${files}`);
+            if (files.length != 0) {
                 fsExtra.emptyDirSync(dir);
             } else {
                 core.info(`${dir} is empty!`)
